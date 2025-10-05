@@ -1,0 +1,155 @@
+/* Full Screen Dark Background with Romantic Gradient */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1f002d 0%, #4b0082 50%, #6f0099 100%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    color: white;
+    overflow: hidden; 
+}
+
+/* Main Content Box (Glass Effect) */
+.container {
+    background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(5px); 
+    padding: 50px 60px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 105, 180, 0.5); 
+    max-width: 90%;
+    width: 450px;
+    border: 2px solid #ff69b4;
+    position: relative;
+    z-index: 10;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    color: #ffc0cb; 
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+}
+
+.question-text {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ff69b4; 
+    margin: 25px 0;
+}
+
+/* --- Button Styling --- */
+.buttons-group {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-size: 1.4em;
+    padding: 15px 35px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    margin: 0 10px;
+}
+
+#yes-btn {
+    background-color: #ff1493; 
+    color: white;
+    border: none;
+}
+
+#no-btn {
+    background-color: #444; 
+    color: white;
+    border: none;
+    position: fixed; /* Moving logic ke liye zaroori */
+    transition: none;
+    z-index: 50; 
+}
+
+/* --- Success Message Styling --- */
+#success-message {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #4b0082;
+    box-shadow: 0 0 50px rgba(255, 20, 147, 1);
+}
+
+#success-message h1 {
+    color: #ff007f;
+    animation: heartbeat 1.5s infinite;
+}
+
+.success-text {
+    font-size: 1.5em;
+    color: #880088;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* --- Mute Button Styling --- */
+#mute-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #ff69b4;
+    color: #ff69b4;
+    font-size: 1.5em;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    line-height: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#mute-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Simple Heart Animation --- */
+.background-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1; 
+}
+
+.background-hearts::before {
+    content: '❤️';
+    font-size: 40px;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fallingHearts 10s linear infinite;
+}
+
+@keyframes fallingHearts {
+    0% { top: -10%; opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { top: 110%; opacity: 0; }
+}
